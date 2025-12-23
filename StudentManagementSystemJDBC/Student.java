@@ -24,4 +24,14 @@ Connection c = DBConnection.getConnection();
                 System.out.println(rs.getString("name")+" --- "+rs.getInt("num")+"  ---  "+rs.getInt("mark"));
              }
 }
+void get(int n) throws Exception{
+  String sql="select * from stu where num =? ";
+  Connection c = DBConnection.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql);
+            
+           ResultSet rs=  ps.executeQuery();
+             while(rs.next()){
+                System.out.println(rs.getString("name")+" --- "+rs.getInt("num")+"  ---  "+rs.getInt("mark"));
+             }
+}
 }

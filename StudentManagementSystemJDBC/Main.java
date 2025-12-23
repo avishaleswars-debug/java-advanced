@@ -29,9 +29,12 @@ public class Main {
         case 2:
        st.view();
         break;
-   //     case 3:
-   //         ss.get();
-   //         break;
+        case 3:
+            System.out.println("enter the num");
+            int va=s.nextInt();
+            s.nextLine();
+            st.get(va);
+            break;
    //    case 4:
    //     ss.delete();
      //   break;

@@ -46,8 +46,9 @@ void update(int n,String name) throws Exception{
   String sql="update stu set name = ? where num = ?";
   Connection c = DBConnection.getConnection();
              PreparedStatement ps = c.prepareStatement(sql);
-            ps.setInt(1,n);
-            ps.setString(2, name);
+             ps.setString(1, name);
+
+            ps.setInt(2,n);
            int  rs=  ps.executeUpdate();
            System.out.println(rs+" row affected");
 

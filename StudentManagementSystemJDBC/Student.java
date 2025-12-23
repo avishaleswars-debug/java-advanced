@@ -42,4 +42,14 @@ void delete(int n) throws Exception {
            int  rs=  ps.executeUpdate();
            System.out.println(rs+" row affected");
 }
+void update(int n,String name) throws Exception{
+  String sql="update stu set name = ? where num = ?";
+  Connection c = DBConnection.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1,n);
+            ps.setString(2, name);
+           int  rs=  ps.executeUpdate();
+           System.out.println(rs+" row affected");
+
+}
 }

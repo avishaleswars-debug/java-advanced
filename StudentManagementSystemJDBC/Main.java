@@ -41,9 +41,14 @@ public class Main {
         s.nextLine();
         st.delete(dl);
         break;
-    //    case 5:
-    //    ss.update();
-      //      break;
+        case 5:
+            System.out.println("enter the num");
+            int un=s.nextInt();
+            s.nextLine();
+            System.out.println("Enter the new name");
+            String nam=s.nextLine();
+        st.update(un,nam);
+            break;
         case 6:
              return ;
             default:

@@ -35,9 +35,12 @@ public class Main {
             s.nextLine();
             st.get(va);
             break;
-   //    case 4:
-   //     ss.delete();
-     //   break;
+       case 4:
+        System.out.println("enter the num");
+        int dl=s.nextInt();
+        s.nextLine();
+        st.delete(dl);
+        break;
     //    case 5:
     //    ss.update();
       //      break;

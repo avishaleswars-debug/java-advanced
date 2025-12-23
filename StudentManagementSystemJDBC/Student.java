@@ -25,13 +25,21 @@ Connection c = DBConnection.getConnection();
              }
 }
 void get(int n) throws Exception{
-  String sql="select * from stu where num =? ";
+  String sql="select * from stu where num = ? ";
   Connection c = DBConnection.getConnection();
              PreparedStatement ps = c.prepareStatement(sql);
-            
+            ps.setInt(1,n);
            ResultSet rs=  ps.executeQuery();
              while(rs.next()){
                 System.out.println(rs.getString("name")+" --- "+rs.getInt("num")+"  ---  "+rs.getInt("mark"));
              }
+}
+void delete(int n) throws Exception {
+  String sql="delete from stu where num = ?";
+  Connection c = DBConnection.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1,n);
+           int  rs=  ps.executeUpdate();
+           System.out.println(rs+" row affected");
 }
 }

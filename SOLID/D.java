@@ -13,14 +13,14 @@ void show();
         }
     }
     class Controller{
-        private InnerD bj;
+        private InnerD obj;
         private String name;
-        Controller(InnerD obj,String nam){
-            bj=obj;
-            name=nam;
+        Controller(InnerD obj,String name){
+            this.obj=obj;
+            this.name=name;
         }
         void fun(){
-            bj.show();
+            obj.show();
             System.out.println(name);
         }
     }

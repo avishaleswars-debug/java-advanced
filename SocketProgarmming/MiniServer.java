@@ -1,23 +1,31 @@
 package SocketProgarmming;
 
 import java.io.BufferedReader;
-
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.Files;
 
 public class MiniServer {
     public static void main(String[] args) throws Exception {
         ServerSocket ss=new ServerSocket(1111);
-        Socket s=ss.accept();
+        while(true){
+          Socket s=ss.accept();
+          handleclient(s);
+        }
+    }
+       public static void handleclient(Socket s)throws Exception{
  BufferedReader io = new BufferedReader(
                 new InputStreamReader(s.getInputStream())
         );          String line;
           while((line=io.readLine())!=null&&!line.isEmpty()){
               System.out.println(line);
           }
-          String body = "<html><body><h1>Hello from my Java Server! </h1></body></html>";
+       //   System.out.println(new java.io.File("").getAbsolutePath());
+          String body = readFile("SocketProgarmming/index.html");
           PrintWriter out = new PrintWriter(s.getOutputStream());
 
         // Status line
@@ -34,6 +42,10 @@ public class MiniServer {
         out.println(body);
         out.flush();
           io.close();
-          ss.close();
+          s.close();
+    
+}
+     private static String readFile(String filePath) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(filePath)));
     }
 }

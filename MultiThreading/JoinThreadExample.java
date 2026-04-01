@@ -13,10 +13,13 @@ public class JoinThreadExample {
             }
            
         });
+         t1.setDaemon(true);
         t1.start();
+        t2.setDaemon(true);
         t2.start();
-        t2.setPriority(2);
+       
+      //  t2.setPriority(2);
         t2.join();
-         System.out.println("thread 3");
+      //   System.out.println("thread 3");
     }
 }

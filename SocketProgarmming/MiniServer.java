@@ -12,10 +12,16 @@ import java.nio.file.Files;
 public class MiniServer {
     public static void main(String[] args) throws Exception {
         ServerSocket ss=new ServerSocket(1111);
-        while(true){
-          Socket s=ss.accept();
-          handleclient(s);
+        while (true) {
+    Socket s = ss.accept();
+    new Thread(() -> {
+        try {
+            handleclient(s);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }).start();
+}
     }
        public static void handleclient(Socket s)throws Exception{
  BufferedReader io = new BufferedReader(

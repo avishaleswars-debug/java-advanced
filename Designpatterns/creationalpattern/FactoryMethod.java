@@ -1,34 +1,31 @@
 package Designpatterns.creationalpattern;
-abstract class Transport {
-abstract void printv();
+interface Transport {
+ void printv();
 }
-class BusMode extends Transport{
+class BusMode implements Transport{
 public void printv(){
 System.out.println("bus transport mode");
 }
 }
-class ShipMode extends Transport{
+class ShipMode implements Transport{
 public void printv(){
 System.out.println("ship transport mode");
 }
 }
-public interface InnerFactoryMethod {
-Transport vehicletype();
-    
-}
-class Bus implements InnerFactoryMethod{
-    Transport vehicletype(){
-        return new BusMode();
-    }
-}
-class Ship implements InnerFactoryMethod{
-    Transport vehicletype(){
+class Factory{
+public static Transport getobj(String type){
+    if(type.equals("ship")){
         return new ShipMode();
     }
+     if(type.equals("bus")){
+        return new BusMode();
+    }
+    return null;
 }
-
+}
 public class FactoryMethod {
     public static void main(String[] args) {
-        InnerFactoryMethod fmcar=
+        Transport obj=Factory.getobj("ship");
+        obj.printv();
     }
 }

@@ -19,7 +19,7 @@ public class JoinThreadExample {
         t2.start();
        
       //  t2.setPriority(2);
-        t2.join();
+      t2.join();
       //   System.out.println("thread 3");
     }
 }
